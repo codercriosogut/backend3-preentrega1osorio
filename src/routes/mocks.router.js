@@ -1,5 +1,3 @@
-// src/routes/mocks.router.js
-
 import { Router } from 'express';
 import { generateMockPets } from '../utils/mockPets.js';
 import { generateMockUsers } from '../utils/mockUsers.js';
