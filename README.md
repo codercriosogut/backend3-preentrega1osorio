@@ -36,12 +36,10 @@ Este proyecto es una API desarrollada con Node.js y Express.js que utiliza @fake
 
 
 ## .env ##
-- EMAIL_USER=cosoriogut@gmail.com
-- EMAIL_PASS=ccbq crle ovlp xtra
-- JWT_SECRET=mySuperSecretKey123!@#
+- MONGODB_URI=mongodb+srv://cri2024:cri2024@cluster0.mswsapd.mongodb.net/bkd3_mocks?retryWrites=true&w=majority&appName=Cluster0
 - PORT=8080
-- MONGODB_URI=mongodb+srv://cri2024:cri2024@cluster0.mswsapd.mongodb.net/bkn3_mocks?retryWrites=true&w=majority&appName=Cluster0
-
+- MOCK_USER_PASSWORD=coder123
+#
 **⚠️ Nota: información confidencial:** El archivo `.env` ha sido proporcionado únicamente para facilitar la evaluación de este proyecto por parte del profesor.
 
 <a href="#title">Volver al inicio</a>
@@ -141,18 +139,8 @@ export const generateMockUsers = async (numUsers) => {
 - ***Query Params:***: num (opcional), el número de usuarios a generar.
 #
 - `POST /api/mocks/generateData`: Inserta datos simulados de usuarios y mascotas en la base de datos.
-- ***Body Params:***
-```json
-{
-    "users": 5,
-    "pets": 5 
-}
-```
-#### Respuesta:
-
-
-
-
+- ***Body Params:***: {"users": 5,"pets": 5}
+#
 <a href="#title">Volver al inicio</a>
 
 ## Directorios ##
@@ -171,26 +159,21 @@ export const generateMockUsers = async (numUsers) => {
  ┗ 📜app.js
 
 ```
-
-
-
+#
 ## Dependencias ##
 El proyecto utiliza las siguientes dependencias clave:
 
-@faker-js/faker: Generación de datos falsos.
-bcrypt: Hasheo de contraseñas.
-dotenv: Manejo de variables de entorno.
-express: Framework web.
-mongoose: Modelado de objetos MongoDB.
-supertest: Pruebas HTTP.
-mocha y chai: Framework de pruebas y librería de aserciones.
-
-##
+- **@faker-js/faker**: Generación de datos falsos.
+- **bcrypt**: Hasheo de contraseñas.
+- **dotenv**: Manejo de variables de entorno.
+- **express**: Framework web.
+- **mongoose**: Modelado de objetos MongoDB.
+#
 <a href="#title">Volver al inicio</a>
 
+##
 #
 #
-
 ## Test ##
 ### Generar Mascotas Simuladas
 - **Método**: GET
@@ -246,7 +229,7 @@ mocha y chai: Framework de pruebas y librería de aserciones.
 }
 ```
 #
-### Insertar Datos Simulados en la Base de Datos
+### Insertar Datos Simulados en la Base de Datos Mongodb
 ##
 - **Método**: POST
 - **URL**: `http://localhost:8080/api/mocks/generateData`
@@ -265,7 +248,7 @@ mocha y chai: Framework de pruebas y librería de aserciones.
     "message": "5 users and 5 pets inserted into the database"
 }
 ```
-#### Respuesta MongodbAtlas:
+#### MongodbAtlas:
 <div align="center" id="top">
     <img src="./src/public/img/Screenshot_1.png" alt="businesses" />
 </div>
