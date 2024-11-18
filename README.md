@@ -144,10 +144,14 @@ export const generateMockUsers = async (numUsers) => {
 - ***Body Params:***
 ```json
 {
-  "users": 10,
-  "pets": 20
+    "users": 5,
+    "pets": 5 
 }
 ```
+#### Respuesta:
+
+
+
 
 <a href="#title">Volver al inicio</a>
 
@@ -241,8 +245,9 @@ mocha y chai: Framework de pruebas y librería de aserciones.
     ]
 }
 ```
-
+#
 ### Insertar Datos Simulados en la Base de Datos
+##
 - **Método**: POST
 - **URL**: `http://localhost:8080/api/mocks/generateData`
 - **Body**: raw/JSON
@@ -262,7 +267,16 @@ mocha y chai: Framework de pruebas y librería de aserciones.
 ```
 #### Respuesta MongodbAtlas:
 <div align="center" id="top">
-    <img src="./test/image02.png" alt="businesses" />
+    <img src="./src/public/img/Screenshot_1.png" alt="businesses" />
+</div>
+
+#
+#### Decrypt Checker Bcrypt generator:
+<div align="center" id="top">
+    <img src="./src/public/img/Screenshot_2.png" alt="businesses" />
+</div>
+<div align="center" id="top">
+    <img src="./src/public/img/Screenshot_3.png" alt="businesses" />
 </div>
 
 
