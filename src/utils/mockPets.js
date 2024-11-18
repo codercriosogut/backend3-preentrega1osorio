@@ -1,4 +1,3 @@
-//new
 import { faker } from '@faker-js/faker';
 
 export const generateMockPets = (numPets) => {
