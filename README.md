@@ -1,14 +1,14 @@
 <h1 align="center" id="title">Plantilla de Documentación del Proyecto - Mock Faker</h1>
 <div align="center" id="top"> 
-  <img src="./test/logo.png" alt="logo" />
+  <img src="./src/public/img/logo.png" alt="logo" />
 </div>
 <p align="center">
-  <a href="#descripcion">Descripción</a> &#xa0; | &#xa0; 
-  <a href="#tecnologias">Tecnologias</a> &#xa0; | &#xa0;
-  <a href="#env">env</a> &#xa0; | &#xa0;
+  <a href="#descripcion">Descripción</a> &#xa0; | &#xa0;
   <a href="#instalacion">Instalacion</a> &#xa0; | &#xa0;
-  <a href="#rutas">Rutas</a> &#xa0; | &#xa0;
+  <a href="#env">env</a> &#xa0; | &#xa0;
+  <a href="#directorios">Directorios</a> &#xa0; | &#xa0;
   <a href="#codigo">Código</a> &#xa0; | &#xa0;
+  <a href="#rutas">Rutas</a> &#xa0; | &#xa0;
   <a href="#dependencias">Dependencias</a> &#xa0; | &#xa0;
   <a href="#test">Test</a> &#xa0; | &#xa0; 
 </p>
@@ -22,27 +22,6 @@ Este proyecto es una API desarrollada con Node.js y Express.js que utiliza @fake
 
 <a href="#title">Volver al inicio</a>
 
-
-## Tecnologias ##
-- **Node.js**: Plataforma para la ejecución de JavaScript del lado del servidor.
-- **Express.js**: Framework para la creación de aplicaciones web y API REST.
-- **MongoDB**: Base de datos NoSQL para la persistencia de la información.
-- **Mongoose**: ODM (Object Data Modeling) para la conexión y manipulación de MongoDB.
-- **Nodemailer**: Librería para el envío de correos electrónicos.
-- **JWT (JSON Web Tokens)**: Para la autenticación y autorización.
-- **dotenv**: Manejo de variables de entorno.
-
-<a href="#title">Volver al inicio</a>
-
-
-## .env ##
-- MONGODB_URI=mongodb+srv://cri2024:cri2024@cluster0.mswsapd.mongodb.net/bkd3_mocks?retryWrites=true&w=majority&appName=Cluster0
-- PORT=8080
-- MOCK_USER_PASSWORD=coder123
-#
-**⚠️ Nota: información confidencial:** El archivo `.env` ha sido proporcionado únicamente para facilitar la evaluación de este proyecto por parte del profesor.
-
-<a href="#title">Volver al inicio</a>
 
 ## Instalacion ##
 
@@ -76,71 +55,13 @@ $ npm start
 ```
 <a href="#title">Volver al inicio</a>
 
-
-## Codigo ##
-#### Generación de Datos Simulados: El proyecto utiliza @faker-js/faker para crear datos de prueba:
-- `GET /api/mocks/mockingpets`
-- ***Genera mascotas con propiedades como***: name, specie, birthDate, adopted, owner, e image.
-
-```json
-import { faker } from '@faker-js/faker';
-
-export const generateMockPets = (numPets) => {
-    let pets = [];
-    for (let i = 0; i < numPets; i++) {
-        pets.push({
-            name: faker.person.firstName(),
-            specie: faker.animal.type(),
-            birthDate: faker.date.past(5),
-            adopted: false,
-            owner: null,
-            image: faker.image.url()
-        });
-    }
-    return pets;
-};
-```
+## .env ##
+- MONGODB_URI=mongodb+srv://cri2024:cri2024@cluster0.mswsapd.mongodb.net/bkd3_mocks?retryWrites=true&w=majority&appName=Cluster0
+- PORT=8080
+- MOCK_USER_PASSWORD=coder123
 #
-- `GET /api/mocks/mockingpets`
-- ***Genera usuarios con propiedades como***: first_name, last_name, email, password, role, y pets.
-```json
-import { faker } from '@faker-js/faker';
-import { createHash } from './index.js';
+**⚠️ Nota: información confidencial:** El archivo `.env` ha sido proporcionado únicamente para facilitar la evaluación de este proyecto por parte del profesor.
 
-export const generateMockUsers = async (numUsers) => {
-    const users = [];
-    for (let i = 0; i < numUsers; i++) {
-        users.push({
-            first_name: faker.person.firstName(),
-            last_name: faker.person.lastName(),
-            email: faker.internet.email(),
-            password: await createHash('coder123'),
-            role: Math.random() < 0.5 ? 'user' : 'admin',
-            pets: []
-        });
-    }
-    return users;
-};
-
-```
-#
-
-## Rutas ## 
-### POSTMAN
-
-#### La API proporciona varias rutas para manejar la generación de datos:
-
-
-### mascotas 
-- `GET /api/mocks/mockingpets`: Devuelve una lista de mascotas simuladas.
-- ***Query Params:***: num (opcional), el número de mascotas a generar.
-#
-- `GET /api/mocks/mockingusers`: Devuelve una lista de usuarios simulados.
-- ***Query Params:***: num (opcional), el número de usuarios a generar.
-#
-- `POST /api/mocks/generateData`: Inserta datos simulados de usuarios y mascotas en la base de datos.
-- ***Body Params:***: {"users": 5,"pets": 5}
-#
 <a href="#title">Volver al inicio</a>
 
 ## Directorios ##
@@ -157,8 +78,82 @@ export const generateMockUsers = async (numUsers) => {
  ┃ ┣ 📜mockUsers.js
  ┃ ┗ 📜index.js
  ┗ 📜app.js
-
 ```
+<a href="#title">Volver al inicio</a>
+
+## Codigo ##
+#### Generación de Datos Simulados: El proyecto utiliza @faker-js/faker para crear datos de prueba:
+- `src/utils/mockPets.js`
+- Genera mascotas con propiedades como name, specie, birthDate, adopted, owner, e image.**
+
+```json
+import { faker } from '@faker-js/faker';
+
+export const generateMockPets = (numPets) => {
+    let pets = [];
+    
+    for (let i = 0; i < numPets; i++) {
+        pets.push({
+            name: faker.person.firstName(),
+            specie: faker.animal.type(),
+            birthDate: faker.date.past(5),
+            adopted: false,
+            owner: null,
+            image: faker.image.url()
+        });
+    }
+    
+    return pets;
+};
+```
+#
+- `src/utils/mockUsers.js`
+- Genera usuarios con propiedades como first_name, last_name, email, password, role, y pets.
+
+```json
+import { faker } from '@faker-js/faker';
+import { createHash } from './index.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+export const generateMockUsers = async (numUsers) => {
+    const users = [];
+    const defaultPass = process.env.MOCK_USER_PASSWORD;
+
+    for (let i = 0; i < numUsers; i++) {
+        users.push({
+            first_name: faker.person.firstName(),
+            last_name: faker.person.lastName(),
+            email: faker.internet.email(),
+            password: await createHash(defaultPass),
+            role: Math.random() < 0.5 ? 'user' : 'admin',
+            pets: []
+        });
+    }
+    return users;
+};
+```
+
+<a href="#title">Volver al inicio</a>
+
+#
+
+## Rutas ## 
+### La API proporciona varias rutas para manejar la generación de datos:
+
+#### La API proporciona varias rutas para manejar la generación de datos: 
+- `GET /api/mocks/mockingpets`: Devuelve una lista de mascotas simuladas.
+- ***Query Params:***: num (opcional), el número de mascotas a generar.
+#
+- `GET /api/mocks/mockingusers`: Devuelve una lista de usuarios simulados.
+- ***Query Params:***: num (opcional), el número de usuarios a generar.
+#
+- `POST /api/mocks/generateData`: Inserta datos simulados de usuarios y mascotas en la base de datos.
+- ***Body Params:***: {"users": 5,"pets": 5}
+#
+<a href="#title">Volver al inicio</a>
+
 #
 ## Dependencias ##
 El proyecto utiliza las siguientes dependencias clave:
