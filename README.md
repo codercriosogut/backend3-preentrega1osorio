@@ -85,8 +85,8 @@ $ npm start
 #### Generación de Datos Simulados: El proyecto utiliza @faker-js/faker para crear datos de prueba:
 - `src/utils/mockPets.js`
 - Genera mascotas con propiedades como name, specie, birthDate, adopted, owner, e image.**
-
-```json
+#
+```javascript
 import { faker } from '@faker-js/faker';
 
 export const generateMockPets = (numPets) => {
@@ -105,12 +105,14 @@ export const generateMockPets = (numPets) => {
     
     return pets;
 };
+
 ```
+
 #
 - `src/utils/mockUsers.js`
 - Genera usuarios con propiedades como first_name, last_name, email, password, role, y pets.
 
-```json
+```javascript
 import { faker } from '@faker-js/faker';
 import { createHash } from './index.js';
 import dotenv from 'dotenv';
@@ -181,48 +183,54 @@ El proyecto utiliza las siguientes dependencias clave:
     "status": "success",
     "payload": [
         {
-            "name": "Janick",
-            "specie": "cow",
-            "birthDate": "2024-07-18T07:50:38.825Z",
+            "name": "Brennon",
+            "specie": "turtle",
+            "birthDate": "2024-06-27T20:09:37.512Z",
             "adopted": false,
             "owner": null,
-            "image": "https://picsum.photos/seed/6EhZx/3521/2314"
+            "image": "https://loremflickr.com/2634/3189?lock=4490057815710945"
         },
         {
-            "name": "Nadia",
-            "specie": "koala",
-            "birthDate": "2024-03-30T10:48:45.527Z",
+            "name": "Lucy",
+            "specie": "monkey",
+            "birthDate": "2024-05-27T06:07:14.828Z",
             "adopted": false,
             "owner": null,
-            "image": "https://loremflickr.com/855/2821?lock=7163701206650140"
+            "image": "https://loremflickr.com/2847/3244?lock=7579876253003146"
         },
         {
-            "name": "Lauryn",
-            "specie": "polar bear",
-            "birthDate": "2024-09-03T05:46:20.163Z",
+            "name": "Anderson",
+            "specie": "whale",
+            "birthDate": "2024-09-03T12:25:30.334Z",
             "adopted": false,
             "owner": null,
-            "image": "https://loremflickr.com/3743/1853?lock=512772578769504"
+            "image": "https://loremflickr.com/860/3230?lock=5273584123218774"
         },
         {
-            "name": "Pauline",
-            "specie": "gorilla",
-            "birthDate": "2024-10-19T07:09:32.781Z",
+            "name": "Kara",
+            "specie": "penguin",
+            "birthDate": "2024-07-26T17:08:13.061Z",
             "adopted": false,
             "owner": null,
-            "image": "https://picsum.photos/seed/kWzXQ/108/2909"
+            "image": "https://loremflickr.com/937/2819?lock=6472656405993971"
         },
         {
-            "name": "Vincent",
-            "specie": "eagle",
-            "birthDate": "2024-01-02T21:32:53.171Z",
+            "name": "Elias",
+            "specie": "rabbit",
+            "birthDate": "2024-01-21T03:16:41.770Z",
             "adopted": false,
             "owner": null,
-            "image": "https://picsum.photos/seed/FnfUuFOP/3741/2619"
+            "image": "https://picsum.photos/seed/QWF6oG/2863/1790"
         }
     ]
 }
 ```
+
+#### Postman:
+<div align="center" id="top">
+    <img src="./src/public/img/Screenshot_4.png" alt="businesses" />
+</div>
+
 #
 ### Insertar Datos Simulados en la Base de Datos Mongodb
 ##
@@ -236,7 +244,7 @@ El proyecto utiliza las siguientes dependencias clave:
     "pets": 5 
 }
 ```
-#### Respuesta:
+#### Respuesta POSTMAN:
 ```json
 {
     "status": "success",
@@ -253,6 +261,9 @@ El proyecto utiliza las siguientes dependencias clave:
 <div align="center" id="top">
     <img src="./src/public/img/Screenshot_2.png" alt="businesses" />
 </div>
+
+#
+
 <div align="center" id="top">
     <img src="./src/public/img/Screenshot_3.png" alt="businesses" />
 </div>
