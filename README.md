@@ -251,13 +251,25 @@ El proyecto utiliza las siguientes dependencias clave:
     "message": "5 users and 5 pets inserted into the database"
 }
 ```
-#### MongodbAtlas:
+#
+#### MongodbAtlas: bkd3_mocks.pets
 <div align="center" id="top">
-    <img src="./src/public/img/Screenshot_1.png" alt="businesses" />
+    <img src="./src/public/img/Screenshot_5.png" alt="pets" />
+</div>
+
+#
+#### MongodbAtlas: bkd3_mocks.users
+<div align="center" id="top">
+    <img src="./src/public/img/Screenshot_1.png" alt="users" />
 </div>
 
 #
 #### Decrypt Checker Bcrypt generator:
+- [Generador de hashes bcrypt](https://bcrypt-generator.com/)
+- Este generador es útil para crear contraseñas encriptadas rápidamente y probar funcionalidades relacionadas con la autenticación.
+
+
+
 <div align="center" id="top">
     <img src="./src/public/img/Screenshot_2.png" alt="businesses" />
 </div>
