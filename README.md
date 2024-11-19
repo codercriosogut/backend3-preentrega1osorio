@@ -265,7 +265,7 @@ El proyecto utiliza las siguientes dependencias clave:
 
 #
 #### Decrypt Checker Bcrypt generator:
-- [Generador de hashes bcrypt](https://bcrypt-generator.com/)
+- <a href="https://bcrypt-generator.com/" target="_blank">Generador de hashes bcrypt</a>
 - Este generador es útil para crear contraseñas encriptadas rápidamente y probar funcionalidades relacionadas con la autenticación.
 
 
